@@ -1,0 +1,62 @@
+# Images
+## To get a list of off-line images to use for your VM
+az vm image list --output table
+
+## To get a list of images that are off-line and on Azure Marketplace
+**Warning! This list is long as hell. Use parameters such as --sku, --publisher, or --offer to get better results**
+az vm image list --output table --all
+
+## To get a list of images by Microsoft
+az vm image list --publisher Microsoft --output table --all
+
+## To get a list of images in a certain region
+az vm image list --location <region name> --output table
+
+
+# Resource-groups
+## To show resource groups
+az group show
+
+## To create a resource-group 
+
+
+# Subscription
+## To check subscription you are in
+az account show
+
+
+# VM
+## To list VMs in subscription using JSON (Harder to read, good for scripting)
+az vm list
+
+## To list VMs in resource-group using JSON
+az vm list --resource-group
+
+## To list VM in readable table
+az vm list --output table
+
+## To list VM Ip address in table
+az vm list-ip-addresses --name <name of VM> --output table
+
+## To create a VM
+az vm create --name <Name for the VM> --resource-group <Name of rg to put VM in> --location <region for VM> --image <Image for VM> --admin-username <Username you want to log into VM> --generate-ssh-keys --verbose
+
+## To connect to a newly created vm
+ssh azureuser@<public-ip-address>
+
+## Resize exisiting VM
+az vm resize --resource-group <rg name> --name <exisiting VM name> --size <size you want to resize VM to>
+
+## To Stop VM
+az vm stop --resource-group <rg name> --name <Name of VM>
+
+## To open a port on VM
+az vm open-port --port <Port Number like 80> --resource-group <Rg name>--name <Nane of VM>
+
+
+
+
+
+
+
+
