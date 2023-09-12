@@ -46,7 +46,34 @@ Get-Process | sort-object -Descending -Property Name
 # Variables
 ## To specify a variable so you don't have to keep writing it out
 $<Variable-name> = <code or whatever>
+## Working with Varibles: Quotation Marks and Interpolation
+### To make something literal (You write is what you get) using single quotation makrks
+Write-Host 'Here is $PI' # Prints Here is $PI
+### To interpolate use double quotation marks
+Write-Host "Here is `$PI and its value is $PI" # Prints Here is $PI and its value is 3.14 ALSO '$PI allows you to escape interpolation of first $PI; second instance, value is interpolated and written out.
+### To use an expression wihtin double quotation marks you can use the $() construct
+Write-Host "An expression $($PI + 1)" # Prints An expression 4.14
 
+# Profiles
+## To see profile types and paths associated with them
+$Profile | Select-Object *
+## To create a profile for the current user and the current host
+New-item -Itemtype "File" -Value 'Write-host "Hello <replace with your name>, welcome back" -foregroundcolor Green ' -Path $Profile.CurrentUserCurrentHost -Force
 # Write-host
 ## To print something
 Write-host "This is what I want to say"
+
+# Parameters
+## How to declare a parameter
+Param(<insert param1, insert param2>) # inside the parathensis is called a declaration
+### To use a parameter decorator to require less typing or code (parameter decorator is Parameter[])
+Param([Parameter(Mandatory)] $Path) New-item $Path Write-host "File created at $Path" # This will make '$Path' mandatory
+### To make parameter mandatory and display a message (HelpMessage)
+Param([Parameter(Mandatory, HelpMessage = "Please provide a valid path")] $Path) New-item $Path Write-host "File created at $Path"
+### Assign a type to parameter
+Param([string]$Path)
+
+
+
+
+
