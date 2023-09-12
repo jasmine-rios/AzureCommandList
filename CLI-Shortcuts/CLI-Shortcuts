@@ -4,6 +4,7 @@ alt-a
 ## Move to back of command you are editing
 
 # Ping
+ping <IP or host name>
 ## Stop Ping 
 ctrl-c
 

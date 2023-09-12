@@ -18,7 +18,7 @@ az vm image list --location <region name> --output table
 az group show
 
 ## To create a resource-group 
-
+az group add <resource-group name>
 
 # Subscription
 ## To check subscription you are in
