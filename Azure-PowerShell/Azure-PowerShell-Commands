@@ -1,0 +1,52 @@
+# General
+## To get information on what PowerShell you are using
+$PSVersionTable
+## To get the list of verbs you can use
+get-verb
+## To get the list of cmdlets you can use
+get-command
+## To get the noun of a command in regards to file
+get-command -Noun File*
+
+# Help
+## To get help with PS
+Get-Help
+## To get help with cmdlets
+Get-Help -Name <cmd you need help with>
+## To get help on a command to what what else you can add to it.
+<Cmd> -help
+## Common flags to help with the help command
+### To get longer list than standard response
+-full
+### To get standard list but with parameters
+-Detailed
+### To get only example of how to use the command
+-examples
+### To open a webpage for your command
+-online
+### To see a parameter's properties
+-parameter
+
+# Process
+## To show list of all processes running on a system
+get-process
+## To view a certain process
+get-process <process name>
+## To show member table of certain process
+Get-Process -Name <selected-process-name> | Get-Member
+## To ask for certain things about a process to be shown (use get-member before this to list to use real names of columns to help filter)
+Get-Process <process name> | select-object -property Id, Name, CPU
+## To sort through the process output data using default properties first, if no properties exist, it tries to compare teh objects themselves
+Get-Process | sort-object -Descending -Property Name
+
+# Run files (terminal)
+## To tell PS to run the script or file that's being called
+. ./<filename>
+
+# Variables
+## To specify a variable so you don't have to keep writing it out
+$<Variable-name> = <code or whatever>
+
+# Write-host
+## To print something
+Write-host "This is what I want to say"
