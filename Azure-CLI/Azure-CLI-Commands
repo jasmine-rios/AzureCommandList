@@ -55,8 +55,3 @@ az vm open-port --port <Port Number like 80> --resource-group <Rg name>--name <N
 
 
 
-
-
-
-
-
